@@ -36,10 +36,11 @@
            
    ----------------------------------------------------------------------------------------------
 	 
-  Notes:  * The .h files are main.c, A2.h,instruction.h and functions.h
-          * The .c files are main.c,functions.c, instructionCycle.c, loader_dump.c.and A2.c file
+  Notes:  
+  * The .h files are main.c, A2.h,instruction.h and functions.h.
+  * The .c files are main.c,functions.c, instructionCycle.c, loader_dump.c.and A2.c file.
  
-  (calls: --->) symbol
+  (calls: --->) symbol:
   Project A3: files included are PolledKB.xme , SRA.xme TEST2.dbg, LDRSTR-A3.list(to compare results) 
               LDRSTRA3.xme TEST3.dbg and Strings.xme and testfile.doc.
               Other sample files are also included provided by professor.

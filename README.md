@@ -1,9 +1,8 @@
 # Comp_Arch-Project
 
  * Author: M.Adil Shaikh
- * School: Dalhousie University
- * Dept : Electrical and Computer engineering
- * Course : ECED3403 Computer Architecture
+ * Dept :  Electrical and Computer engineering
+ * Course : Computer Architecture
   
   Purpose: This emulator reads filename.xme containing valid Srecords,
            and then WRITES the data bytes from the starting addresses of that 

@@ -43,6 +43,6 @@
   * Project A3 files included are:
   * PolledKB.xme , SRA.xme TEST2.dbg, LDRSTR-A3.list(to compare results)
               LDRSTRA3.xme TEST3.dbg and Strings.xme and testfile.doc.
-              Other sample files are also included provided by professor.
+            
  
  

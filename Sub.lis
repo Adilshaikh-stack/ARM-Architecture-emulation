@@ -1,0 +1,38 @@
+X-Makina Assembler - Version 3.01 (23 May 2020)
+Input file name: Sub.asm
+Time of assembly: Sat 1 Aug 2020 10:23:40 
+  1	    	     	;
+  2	    	     	; Subtraction
+  3	    	     	;
+  4	    	     		org	#1000
+  5	    	     	Start
+  6	1000	6808		movlz	#1,R0
+  7	1002	4280		sub	#0,R0	; R0 <- R0 - 0
+  8	    	     	;
+  9	1004	6808		movlz	#1,R0
+ 10	1006	4290		sub	#2,R0	; R0 <- R0 - 2
+ 11	    	     	;
+ 12	1008	6808		movlz	#1,R0
+ 13	100A	42B8		sub	$-1,R0	; R0 <- R0 - (-1)
+ 14	    	     	;
+ 15	100C	6808		movlz	#1,R0
+ 16	100E	4288		sub	#1,R0	; R0 <- R0 - 1
+ 17	    	     	;
+ 18	    	     		end	Start
+
+Successful completion of assembly
+
+** Symbol table **
+Name                               	Type	Value	Decimal
+Start                              	LBL	1000	4096
+R7                                 	REG	0007	7
+R6                                 	REG	0006	6
+R5                                 	REG	0005	5
+R4                                 	REG	0004	4
+R3                                 	REG	0003	3
+R2                                 	REG	0002	2
+R1                                 	REG	0001	1
+R0                                 	REG	0000	0
+
+.XME file: C:\Users\larry\OneDrive\Courses\ECED 3403 - 2020\XM3\XM3 - Test files\Test files 4\Sub.xme
+

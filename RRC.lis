@@ -1,0 +1,52 @@
+X-Makina Assembler - Version 3.01 - Release (26 May 2020)
+Input file name: RRC.asm
+Time of assembly: Sat 1 Aug 2020 10:18:55 
+  1	    	     	;
+  2	    	     	; RRC test - count number of set bits
+  3	    	     	;
+  4	    	     		org	#800
+  5	0800	AAAA	Data	word	#AAAA
+  6	    	     	;
+  7	    	     		org	#1000
+  8	    	     	Start
+  9	    	     	; R0 <- address of R0
+ 10	1000	6000		movl	Data,R0
+ 11	1002	7840		movh	Data,R0
+ 12	    	     	;
+ 13	1004	8000		ldr	R0,$0,R0
+ 14	    	     	;
+ 15	1006	6801		movlz	#0,R1	; Count of set bits
+ 16	    	     	;
+ 17	    	     	Loop
+ 18	1008	4580		cmp	#0,R0
+ 19	100A	2468		cex	ne,#5,#0
+ 20	    	     	;
+ 21	100C	2841		clrcc	c	; Clear carry bit - could be set by CMP
+ 22	100E	4D80		rrc	R0	; R0.msb <- C; 
+ 23	1010	4181		addc	#0,R1	; R1 < R1 + C (incr by 0 or 1)
+ 24	1012	2841		clrcc	c	; C <- 0
+ 25	1014	23F9		bra	Loop	; Repeat
+ 26	    	     	;
+ 27	    	     	Done
+ 28	1016	23FF		bra	Done
+ 29	    	     	;
+ 30	    	     		end	Start
+Successful completion of assembly
+
+** Symbol table **
+Name                               	Type	Value	Decimal
+Done                               	LBL	1016	4118
+Loop                               	LBL	1008	4104
+Start                              	LBL	1000	4096
+Data                               	LBL	0800	2048
+R7                                 	REG	0007	7
+R6                                 	REG	0006	6
+R5                                 	REG	0005	5
+R4                                 	REG	0004	4
+R3                                 	REG	0003	3
+R2                                 	REG	0002	2
+R1                                 	REG	0001	1
+R0                                 	REG	0000	0
+
+.XME file: C:\Users\larry\OneDrive\Courses\ECED 3403 - 2020\XM3\XM3 - Test files\Test files 3\RRC.xme
+

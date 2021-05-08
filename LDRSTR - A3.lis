@@ -1,0 +1,48 @@
+X-Makina Assembler - Version 3.01 - Release (26 May 2020)
+Input file name: LDRSTR - A3.asm
+Time of assembly: Sat 1 Aug 2020 10:16:42 
+  1	    	     	;
+  2	    	     	; Register initialization tests
+  3	    	     	; Load/Store relative test
+  4	    	     	;
+  5	    	     		org	#1000
+  6	1000	0000	Data1	bss	#2
+  7	    	     	;
+  8	    	     		org	#2000
+  9	    	     	Start
+ 10	2000	6000		movl	Data1,R0
+ 11	2002	7880		movh	Data1,R0	; R0 = #1000
+ 12	    	     	; 1000
+ 13	2004	6F81		movlz	#F0,R1		; R1 = #00F0
+ 14	2006	C048		str.b	R1,R0,#0	; Write LSB to 1000
+ 15	    	     	; 1001
+ 16	2008	707A		movls	#0F,R2		; R2 = #FF0F
+ 17	200A	C0D0		str.b	R2,R0,#1	; Write LSB to 1001
+ 18	    	     	;
+ 19	    	     	; 1000
+ 20	200C	8003		ldr.w	R0,#0,R3	; Read 1000
+ 21	    	     					; R3 = #0FF0
+ 22	    	     	;
+ 23	    	     	Done
+ 24	200E	23FF		bra	Done
+ 25	    	     	;
+ 26	    	     		end	Start
+
+Successful completion of assembly
+
+** Symbol table **
+Name                               	Type	Value	Decimal
+Done                               	LBL	200E	8206
+Start                              	LBL	2000	8192
+Data1                              	LBL	1000	4096
+R7                                 	REG	0007	7
+R6                                 	REG	0006	6
+R5                                 	REG	0005	5
+R4                                 	REG	0004	4
+R3                                 	REG	0003	3
+R2                                 	REG	0002	2
+R1                                 	REG	0001	1
+R0                                 	REG	0000	0
+
+.XME file: C:\Users\larry\OneDrive\Courses\ECED 3403 - 2020\XM3\XM3 - Test files\Test files 3\LDRSTR - A3.xme
+

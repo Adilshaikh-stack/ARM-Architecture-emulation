@@ -1,0 +1,41 @@
+X-Makina Assembler - Version 3.01 - Release (26 May 2020)
+Input file name: SRA.asm
+Time of assembly: Sat 1 Aug 2020 10:19:41 
+  1	    	     	;
+  2	    	     	; Shift right arithmetic text
+  3	    	     	; Divide by 2
+  4	    	     	;
+  5	    	     		org	#80
+  6	0080	FFF0	Data	word	$-16
+  7	    	     	;
+  8	    	     		org	#1000
+  9	    	     	Start
+ 10	    	     	;	movlz	Data,R0	; R0 <- Address of data
+ 11	    	     	;	ldr	R0,$0,R0	; R0 <- mem[R0]
+ 12	    	     	;
+ 13	1000	6880		movlz	$16,R0	; R0 <- 16
+ 14	1002	46B8		xor	$-1,R0	; One's complement the bits
+ 15	1004	4088		add	#1,R0	; Two's complement
+ 16	    	     	;
+ 17	1006	4D00		sra	R0	; R0/2 (-8)
+ 18	1008	4D00		sra	R0	; R0/2 (-4)
+ 19	100A	4D00		sra	R0	; R0/2 (-2)
+ 20	100C	4D00		sra	R0	; R0/2 (-1)
+ 21	    	     		end	Start
+Successful completion of assembly
+
+** Symbol table **
+Name                               	Type	Value	Decimal
+Start                              	LBL	1000	4096
+Data                               	LBL	0080	128
+R7                                 	REG	0007	7
+R6                                 	REG	0006	6
+R5                                 	REG	0005	5
+R4                                 	REG	0004	4
+R3                                 	REG	0003	3
+R2                                 	REG	0002	2
+R1                                 	REG	0001	1
+R0                                 	REG	0000	0
+
+.XME file: C:\Users\larry\OneDrive\Courses\ECED 3403 - 2020\XM3\XM3 - Test files\Test files 3\SRA.xme
+

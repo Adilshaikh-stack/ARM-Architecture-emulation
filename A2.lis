@@ -1,0 +1,46 @@
+X-Makina Assembler - Version 3.01 (23 May 2020)
+Input file name: A2.asm
+Time of assembly: Sat 1 Aug 2020 10:28:05 
+  1	    	     	;
+  2	    	     	; Example of S-Record output
+  3	    	     	; A simple looping program (expensive way to add 8 to a register)
+  4	    	     	; ECED 3403
+  5	    	     	; 23 May 2020
+  6	    	     	;
+  7	    	     		org	#80		; Data section
+  8	0080	0000	Data	word	#0
+  9	    	     	;
+ 10	    	     		org	#1000		; Code section
+ 11	1000	6C00	Start	movlz	Data,R0		; R0 <- address of Data (#0080)
+ 12	1002	8001		ldr	R0,$0,R1	; R1 <- mem[R0]
+ 13	    	     	;
+ 14	1004	45A1	Loop	cmp	#8,R1		; Check R0 = 8
+ 15	1006	2450		cex	ne,#2,#0	; Do 2 instructions if NE; skip 2 if EQ
+ 16	    	     	; 
+ 17	1008	4089		add	#1,R1		; R1 <- R1 + 1
+ 18	100A	23FC		bra	Loop		; Repeat
+ 19	    	     	;
+ 20	100C	C008		str	R1,R0,$0	; mem[R0] <- R1
+ 21	    	     	Done				; Use as breakpoint
+ 22	    	     	;
+ 23	    	     		end	Start		; S9 record get address of Start (#1000)
+
+Successful completion of assembly
+
+** Symbol table **
+Name                               	Type	Value	Decimal
+Done                               	LBL	100E	4110
+Loop                               	LBL	1004	4100
+Start                              	LBL	1000	4096
+Data                               	LBL	0080	128
+R7                                 	REG	0007	7
+R6                                 	REG	0006	6
+R5                                 	REG	0005	5
+R4                                 	REG	0004	4
+R3                                 	REG	0003	3
+R2                                 	REG	0002	2
+R1                                 	REG	0001	1
+R0                                 	REG	0000	0
+
+.XME file: C:\Users\larry\OneDrive\Courses\ECED 3403 - 2020\XM3\XM3 - Test files\Test files 4\A2.xme
+

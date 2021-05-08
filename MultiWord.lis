@@ -1,0 +1,43 @@
+X-Makina Assembler - Version 3.01 (23 May 2020)
+Input file name: MultiWord.asm
+Time of assembly: Sat 1 Aug 2020 10:22:43 
+  1	    	     	; 
+  2	    	     	; 32-bit addition
+  3	    	     	;
+  4	    	     		org	#80
+  5	0080	FFFF	LOword	word	#FFFF	; Low-order word
+  6	0082	0000	HOword	word	#0	; High-order word
+  7	    	     	;
+  8	    	     		org	#1000
+  9	    	     	Start
+ 10	1000	6C00		movlz	LOword,R0
+ 11	1002	8001		ldr	R0,$0,R1	; R1 <- LOword
+ 12	1004	8102		ldr	R0,$2,R2	; R2 <- HOword
+ 13	    	     	;
+ 14	1006	4091		add	#2,R1	; LOword <- LOword + 2
+ 15	    	     	; 
+ 16	1008	4182		addc	#0,R2	; HOword <- HOword + 0 + C (Include carry in HOword)
+ 17	    	     	;
+ 18	100A	C008		str	R1,R0,$0
+ 19	100C	C110		str	R2,R0,$2
+ 20	    	     	;
+ 21	    	     		end	Start
+
+Successful completion of assembly
+
+** Symbol table **
+Name                               	Type	Value	Decimal
+Start                              	LBL	1000	4096
+HOword                             	LBL	0082	130
+LOword                             	LBL	0080	128
+R7                                 	REG	0007	7
+R6                                 	REG	0006	6
+R5                                 	REG	0005	5
+R4                                 	REG	0004	4
+R3                                 	REG	0003	3
+R2                                 	REG	0002	2
+R1                                 	REG	0001	1
+R0                                 	REG	0000	0
+
+.XME file: C:\Users\larry\OneDrive\Courses\ECED 3403 - 2020\XM3\XM3 - Test files\Test files 4\MultiWord.xme
+

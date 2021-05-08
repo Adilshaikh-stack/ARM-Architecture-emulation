@@ -1,0 +1,42 @@
+X-Makina Assembler - Version 3.01 - Release (26 May 2020)
+Input file name: SWPBSXT.asm
+Time of assembly: Sat 1 Aug 2020 10:20:51 
+  1	    	     	;
+  2	    	     	; SWPB and SXT
+  3	    	     	;
+  4	    	     		org	#80
+  5	0080	0041	Data	byte	'A'
+  6	0081	0042		byte	'B'
+  7	    	     	;
+  8	    	     		org	#1000
+  9	    	     	Start
+ 10	1000	6C00		movlz	Data,R0
+ 11	1002	8000		ldr	R0,$0,R0
+ 12	    	     	;
+ 13	1004	4E00		swpb	R0
+ 14	    	     	;
+ 15	1006	7079		movls	#0F,R1
+ 16	1008	4E09		sxt	R1
+ 17	    	     	;
+ 18	100A	6C01		movlz	#80,R1
+ 19	100C	4E09		sxt	R1
+ 20	    	     	;
+ 21	    	     		end	Start
+
+Successful completion of assembly
+
+** Symbol table **
+Name                               	Type	Value	Decimal
+Start                              	LBL	1000	4096
+Data                               	LBL	0080	128
+R7                                 	REG	0007	7
+R6                                 	REG	0006	6
+R5                                 	REG	0005	5
+R4                                 	REG	0004	4
+R3                                 	REG	0003	3
+R2                                 	REG	0002	2
+R1                                 	REG	0001	1
+R0                                 	REG	0000	0
+
+.XME file: C:\Users\larry\OneDrive\Courses\ECED 3403 - 2020\XM3\XM3 - Test files\Test files 3\SWPBSXT.xme
+
